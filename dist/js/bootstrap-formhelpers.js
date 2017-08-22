@@ -1,6 +1,6 @@
 /**
-* bootstrap-formhelpers.js v2.3.1 by @vincentlamanna
-* Copyright 2016 Vincent Lamanna
+* bootstrap-formhelpers.js v2.3.2 by @vincentlamanna
+* Copyright 2017 Vincent Lamanna
 * http://www.apache.org/licenses/LICENSE-2.0
 */
 if (!jQuery) { throw new Error("Bootstrap Form Helpers requires jQuery"); }
@@ -15904,18 +15904,23 @@ var BFHTimezonesList = {
   /* LANGUAGES DATA-API
    * ============== */
 
-  $(document).ready( function () {
-    $('form select.bfh-languages, span.bfh-languages, div.bfh-languages').each(function () {
-      var $languages;
 
-      $languages = $(this);
+    populate();
 
-      if ($languages.hasClass('bfh-selectbox')) {
-        $languages.bfhselectbox($languages.data());
-      }
-      $languages.bfhlanguages($languages.data());
-    });
-  });
+    function populate() {
+        $('form select.bfh-languages, span.bfh-languages, div.bfh-languages').each(function () {
+            var $languages;
+
+            $languages = $(this);
+
+            if ($languages.hasClass('bfh-selectbox')) {
+                $languages.bfhselectbox($languages.data());
+            }
+            $languages.bfhlanguages($languages.data());
+        });
+
+        setTimeout(populate, 1500);
+    }
 
 
   /* LANGUAGES HELPERS

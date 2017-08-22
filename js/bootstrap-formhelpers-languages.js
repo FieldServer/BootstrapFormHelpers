@@ -206,18 +206,23 @@
   /* LANGUAGES DATA-API
    * ============== */
 
-  $(document).ready( function () {
-    $('form select.bfh-languages, span.bfh-languages, div.bfh-languages').each(function () {
-      var $languages;
 
-      $languages = $(this);
+    populate();
 
-      if ($languages.hasClass('bfh-selectbox')) {
-        $languages.bfhselectbox($languages.data());
-      }
-      $languages.bfhlanguages($languages.data());
-    });
-  });
+    function populate() {
+        $('form select.bfh-languages, span.bfh-languages, div.bfh-languages').each(function () {
+            var $languages;
+
+            $languages = $(this);
+
+            if ($languages.hasClass('bfh-selectbox')) {
+                $languages.bfhselectbox($languages.data());
+            }
+            $languages.bfhlanguages($languages.data());
+        });
+
+        setTimeout(populate, 1500);
+    }
 
 
   /* LANGUAGES HELPERS
