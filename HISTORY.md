@@ -1,3 +1,6 @@
+# 2.3.2
+* Fix #3: Update language list at a set interval.
+
 # 2.3.1
 * Stable release.
 
